@@ -29,10 +29,11 @@ async def once_done(sink: sinks.mp3.MP3Sink, file_name: str, channel: TextChanne
     audio_data: Dict[int, sinks.core.AudioData] = sink.audio_data
 
     del connections[channel.guild.id]
-
-    await channel.send(files=[
+    files = [
         discord.File(audio.file, f'{file_name}.{sink.encoding}') for _user_id, audio in audio_data.items()
-    ])
+    ]
+
+    await channel.send(content='未錄製到數據' if len(files) == 0 else None, files=files)
 
 
 def has_in_voice(func: Callable) -> Callable[[ApplicationContext], None]:
