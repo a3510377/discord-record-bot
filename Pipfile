@@ -1,0 +1,19 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+py-cord = "==2.0.0rc1"
+python-dotenv = "*"
+pynacl = "*"
+
+[dev-packages]
+flake8 = "*"
+autopep8 = "*"
+
+[requires]
+python_version = "3.10"
+
+[pipenv]
+allow_prereleases = true
